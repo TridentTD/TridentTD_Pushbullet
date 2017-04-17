@@ -45,7 +45,7 @@ bool TridentTD_Pushbullet::sendMessage(String title, String message){
 
 
   if (!_clientSecure.connect("api.pushbullet.com", 443)) {
-    DEBUG_PRINT("connection LINE failed");
+    DEBUG_PRINT("connection Pushbullet failed");
     return false;   
   }
 
@@ -81,7 +81,7 @@ bool TridentTD_Pushbullet::sendMessage(String title, String message, String url)
 
 
   if (!_clientSecure.connect("api.pushbullet.com", 443)) {
-    DEBUG_PRINT("connection LINE failed");
+    DEBUG_PRINT("connection Pushbullet failed");
     return false;   
   }
 
