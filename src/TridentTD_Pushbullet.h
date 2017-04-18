@@ -54,10 +54,14 @@ class TridentTD_Pushbullet {
     TridentTD_Pushbullet(String token);
     bool    wificonnect(char *ssid, char *pass);
     String  getVersion();
+
+    bool    sendMessage(String message);
     bool    sendMessage(String title, String message); 
     bool    sendMessage(String title, String message, String url);
+
+    bool    sendChat(String pushbullet_user_email, String message);
   private:
-    float   _version = 1.0;
+    float   _version = 1.2;
     String  _token;
     
     WiFiClientSecure _clientSecure;

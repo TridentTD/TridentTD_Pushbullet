@@ -42,14 +42,23 @@ However you can connect by yourself.
 myPBullet.wificonnect( ssid,password );
 ```
 
+### sendMessage(String message)
 ### sendMessage(String title, String message)
 ### sendMessage(String title, String message, String url)
 
 send the message to your phone.
 
 ```c++
-myPBullet.sendMessage("From Me","HELLO Pushbullet");
+myPBullet.sendMessage(""HELLO Pushbullet");
+myPBullet.sendMessage("From Me","HELLO Pushbullet with TITLE");
 myPBullet.sendMessage("From Me","HELLO Pushbullet with URL", "http://www.google.com");
+```
+
+### sendChat(String pushbullet_user_email, String message)
+
+send the message to your Pushbullet-friend.
+```c++
+myPBullet.sendChat(String pushbullet_user_email, String message);
 ```
 
 ### getVersion()
@@ -62,7 +71,7 @@ myPBullet.getVersion();
 
 Version
 =====
-1.0.0  TridentTD_Pushbullet
+1.2  TridentTD_Pushbullet
 
 @ 17 April 2560 BE (Buddism Era)  / 2017  
 Ven. Phaisarn Techajaruwong

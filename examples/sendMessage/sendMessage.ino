@@ -14,7 +14,13 @@ void setup() {
   
   myPBullet.wificonnect(ssid,pass);
 
-  if( myPBullet.sendMessage("From Me","HELLO Pushbullet") ) {
+  if( myPBullet.sendMessage("HELLO Pushbullet") ) {
+    Serial.println("[TridentTD Pushbullet] Send OK");
+  } else {
+    Serial.println("[TridentTD Pushbullet] Send Fail!");
+  }
+
+  if( myPBullet.sendMessage("From Me","HELLO Pushbullet with title") ) {
     Serial.println("[TridentTD Pushbullet] Send OK");
   } else {
     Serial.println("[TridentTD Pushbullet] Send Fail!");

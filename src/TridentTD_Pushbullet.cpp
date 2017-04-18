@@ -38,7 +38,8 @@ TridentTD_Pushbullet::TridentTD_Pushbullet(String token){
   _token = token;
 }
 
-bool TridentTD_Pushbullet::sendMessage(String title, String message){
+
+bool TridentTD_Pushbullet::sendChat(String pushbullet_user_email, String message){
   if(WiFi.status() != WL_CONNECTED) return false;
   
   //------------ Pushbullet API ----------------------------
@@ -49,7 +50,7 @@ bool TridentTD_Pushbullet::sendMessage(String title, String message){
     return false;   
   }
 
-  String body = "type=note&body=" + message +"&title=" + title;
+  String body = "type=note&body=" + message +"&email=" + pushbullet_user_email;
   String req = "";
   req += "POST /v2/pushes HTTP/1.1\r\n";
   req += "Host: api.pushbullet.com\r\n";
@@ -74,7 +75,8 @@ bool TridentTD_Pushbullet::sendMessage(String title, String message){
   return Success_h;
 }
 
-bool TridentTD_Pushbullet::sendMessage(String title, String message, String url){
+
+bool TridentTD_Pushbullet::sendMessage(String title, String message, String url=""){
   if(WiFi.status() != WL_CONNECTED) return false;
   
   //------------ Pushbullet API ----------------------------
@@ -85,7 +87,9 @@ bool TridentTD_Pushbullet::sendMessage(String title, String message, String url)
     return false;   
   }
 
-  String body = "type=link&body=" + message +"&title=" + title + "&url=" + url;
+  String type = ((url =="")? "note":"link");
+  String body = "type=" + type + "&body=" + message +"&title=" + title + "&url=" + url;
+
   String req = "";
   req += "POST /v2/pushes HTTP/1.1\r\n";
   req += "Host: api.pushbullet.com\r\n";
@@ -108,6 +112,15 @@ bool TridentTD_Pushbullet::sendMessage(String title, String message, String url)
   _clientSecure.peek();
   _clientSecure.stop();
   return Success_h;
+}
+
+
+bool TridentTD_Pushbullet::sendMessage(String title, String message){
+  return sendMessage(title, message, "");
+}
+
+bool TridentTD_Pushbullet::sendMessage(String message){
+  return sendMessage("", message, "");
 }
 
 bool TridentTD_Pushbullet::wificonnect(char* ssid, char* pass){
