@@ -49,7 +49,7 @@ myPBullet.wificonnect( ssid,password );
 send the message to your phone.
 
 ```c++
-myPBullet.sendMessage(""HELLO Pushbullet");
+myPBullet.sendMessage("HELLO Pushbullet");
 myPBullet.sendMessage("From Me","HELLO Pushbullet with TITLE");
 myPBullet.sendMessage("From Me","HELLO Pushbullet with URL", "http://www.google.com");
 ```
@@ -58,7 +58,7 @@ myPBullet.sendMessage("From Me","HELLO Pushbullet with URL", "http://www.google.
 
 send the message to your Pushbullet-friend.
 ```c++
-myPBullet.sendChat("yourfriend@mail.com", "Hello Chat by pushbullet");
+myPBullet.sendChat("----yourfriend@mail.com---", "Hello Chat by pushbullet");
 ```
 
 ### getVersion()
