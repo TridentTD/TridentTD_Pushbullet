@@ -58,7 +58,7 @@ myPBullet.sendMessage("From Me","HELLO Pushbullet with URL", "http://www.google.
 
 send the message to your Pushbullet-friend.
 ```c++
-myPBullet.sendChat(String pushbullet_user_email, String message);
+myPBullet.sendChat("yourfriend@mail.com", "Hello Chat by pushbullet");
 ```
 
 ### getVersion()
